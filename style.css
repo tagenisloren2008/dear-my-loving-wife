@@ -1,0 +1,1604 @@
+
+/* =====================================
+   DEAR, MY LOVING WIFE
+   FINAL LAVENDER SCRAPBOOK DESIGN
+===================================== */
+
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lavender: #e9d8f5;
+    --light-lavender: #f6edfa;
+    --purple: #9870bb;
+    --dark-purple: #71527f;
+    --deep-purple: #563b68;
+    --soft-purple: #c9a8e3;
+    --pink: #f3d9ed;
+    --white: #ffffff;
+    --paper: #fffaff;
+    --text: #796383;
+    --muted: #a28baa;
+    --border: #eadcf2;
+    --shadow: 0 8px 25px rgba(115, 75, 140, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Segoe UI", sans-serif;
+    background: #f8f1fa;
+    color: var(--dark-purple);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #a77bd6;
+    outline-offset: 4px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+::selection {
+    background: #e5d1f2;
+    color: var(--deep-purple);
+}
+
+/* =====================================
+   GENERAL ANIMATIONS
+===================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        opacity: 0.65;
+        transform: scale(0.96);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* =====================================
+   SCREEN NAVIGATION
+===================================== */
+
+.screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+    animation: fadeIn 0.45s ease;
+}
+
+#welcome.active {
+    display: flex;
+}
+
+/* =====================================
+   FLOATING DECORATIONS
+===================================== */
+
+.floating-decoration {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    color: rgba(165, 126, 190, 0.24);
+    animation: gentleFloat 5s ease-in-out infinite;
+}
+
+.decoration-one {
+    top: 15%;
+    left: 4%;
+    font-size: 32px;
+}
+
+.decoration-two {
+    top: 65%;
+    right: 5%;
+    font-size: 35px;
+    animation-delay: 1s;
+}
+
+.decoration-three {
+    bottom: 12%;
+    left: 8%;
+    font-size: 27px;
+    animation-delay: 2s;
+}
+
+/* =====================================
+   WELCOME SCREEN
+===================================== */
+
+#welcome {
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 20% 20%, #f2dcf5, transparent 35%),
+        radial-gradient(circle at 80% 80%, #e4d3f7, transparent 35%),
+        #f8f1fa;
+}
+
+.welcome-content {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    padding: 48px 35px 38px;
+    background: var(--paper);
+    border: 1px solid #ead9f1;
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(115, 75, 140, 0.15);
+}
+
+.scrapbook-paper {
+    transform: rotate(-0.5deg);
+}
+
+.tape {
+    position: absolute;
+    width: 100px;
+    height: 27px;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: rgba(219, 192, 232, 0.7);
+    opacity: 0.8;
+}
+
+.welcome-flower {
+    display: block;
+    font-size: 55px;
+    margin-bottom: 12px;
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.small-title {
+    color: #a282b5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 13px;
+}
+
+.welcome-content h1 {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 45px);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 18px 0;
+}
+
+.welcome-content h1 span,
+.scrapbook-cover h1 span {
+    display: block;
+    color: #a178c0;
+    font-style: italic;
+}
+
+.heart-divider {
+    color: #bd96d6;
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+.welcome-message {
+    max-width: 390px;
+    margin: auto;
+    color: #876c94;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.footer-note {
+    margin-top: 27px;
+    color: #b39bbd;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.corner-decoration {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    color: #c9a8e3;
+    font-size: 23px;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.primary-button {
+    border: none;
+    background: linear-gradient(135deg, #a77bd6, #8560ad);
+    color: white;
+    padding: 13px 27px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 22px;
+    box-shadow: 0 5px 15px rgba(133, 96, 173, 0.25);
+    transition: 0.3s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(133, 96, 173, 0.35);
+}
+
+.primary-button:active {
+    transform: scale(0.97);
+}
+
+/* =====================================
+   HOMEPAGE
+===================================== */
+
+#home {
+    position: relative;
+    padding: 0 20px 45px;
+    background:
+        radial-gradient(circle at top left, #f0def7, transparent 35%),
+        #f8f1fa;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 22px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid rgba(202, 174, 218, 0.35);
+}
+
+.brand {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.birthday-label {
+    color: #a282b5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.home-content {
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.scrapbook-cover {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto 45px;
+    padding: 50px 35px 40px;
+    text-align: center;
+    background: var(--paper);
+    border: 1px solid #eadcf2;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.scrapbook-cover::before,
+.scrapbook-cover::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(196, 155, 220, 0.25);
+    border-radius: 50%;
+}
+
+.scrapbook-cover::before {
+    top: -55px;
+    left: -45px;
+}
+
+.scrapbook-cover::after {
+    right: -45px;
+    bottom: -55px;
+}
+
+.cover-sticker {
+    position: absolute;
+    color: #c49bdc;
+    font-size: 27px;
+}
+
+.sticker-left {
+    top: 20px;
+    left: 25px;
+}
+
+.sticker-right {
+    right: 25px;
+    bottom: 20px;
+}
+
+.scrapbook-cover h1 {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: clamp(31px, 5vw, 43px);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 20px 0;
+}
+
+.cover-message {
+    max-width: 420px;
+    margin: auto;
+    color: #90769c;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.cover-doodle {
+    margin: 25px 0 13px;
+    color: #bd96d6;
+    font-size: 19px;
+}
+
+.cover-caption {
+    color: #ad94b9;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* =====================================
+   HOMEPAGE SECTION HEADING
+===================================== */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    color: #bd96d6;
+}
+
+.section-heading h2 {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section-description {
+    color: #a087ac;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* =====================================
+   MENU CARDS
+===================================== */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.menu-card {
+    position: relative;
+    min-height: 155px;
+    padding: 22px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid #ebdcf2;
+    background: rgba(255, 250, 255, 0.92);
+    border-radius: 17px;
+    color: var(--dark-purple);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-6px);
+    background: white;
+    border-color: #cba9e3;
+    box-shadow: 0 12px 25px rgba(115, 75, 140, 0.16);
+}
+
+.menu-card:active {
+    transform: scale(0.98);
+}
+
+.card-decoration {
+    position: absolute;
+    top: 9px;
+    right: 12px;
+    color: #d1b5e2;
+    font-size: 17px;
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 4px;
+}
+
+.card-title {
+    color: #73517f;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.card-subtitle {
+    color: #a38cab;
+    font-size: 11px;
+}
+
+.special-card {
+    background: linear-gradient(145deg, #f5eafb, #fffaff);
+    border-color: #d9c1e8;
+}
+
+/* =====================================
+   HOMEPAGE FOOTER
+===================================== */
+
+.home-footer {
+    margin: 45px auto 0;
+    text-align: center;
+}
+
+.home-footer .heart-divider {
+    margin-bottom: 12px;
+}
+
+.home-footer p {
+    color: #947a9f;
+    font-family: Georgia, serif;
+    font-size: 14px;
+}
+
+.home-footer span {
+    display: block;
+    margin-top: 9px;
+    color: #b19abc;
+    font-size: 11px;
+}
+
+/* =====================================
+   CONTENT PAGE NAVIGATION
+===================================== */
+
+#page-container {
+    position: relative;
+    padding: 25px 18px 65px;
+    background:
+        radial-gradient(circle at top right, #f0dff6, transparent 35%),
+        #f8f1fa;
+}
+
+.page-navigation {
+    max-width: 850px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.back-button {
+    border: 1px solid #d9c3e7;
+    color: #87649f;
+    background: #fffaff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: #f0e3f7;
+}
+
+.page-label {
+    color: #a78db4;
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+}
+
+/* =====================================
+   SCRAPBOOK PAGE TEMPLATE
+===================================== */
+
+.page-content {
+    width: 100%;
+}
+
+.scrapbook-page {
+    position: relative;
+    max-width: 850px;
+    min-height: 500px;
+    margin: auto;
+    padding: 42px 45px;
+    background: var(--paper);
+    border: 1px solid #eadcf0;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+}
+
+.page-flower {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.page-title {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 4vw, 35px);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    color: #a087ac;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.page-divider {
+    text-align: center;
+    color: #c49bdc;
+    font-size: 17px;
+    margin: 25px 0;
+}
+
+.page-body {
+    width: 100%;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.page-body p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* =====================================
+   OUR STORY
+===================================== */
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-heading h1 {
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: 29px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.page-heading > p:last-child {
+    color: #9a80a6;
+    font-size: 13px;
+    text-align: center;
+}
+
+.story-chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.story-chapter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px;
+    background: #fcf7ff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.story-chapter:hover {
+    transform: translateX(5px);
+    background: #f5eafb;
+    border-color: #c8a5e0;
+}
+
+.chapter-number {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #eadcf5;
+    color: #8d65ac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.story-chapter div {
+    flex: 1;
+    min-width: 0;
+}
+
+.story-chapter h2 {
+    font-size: 14px;
+    color: #73517f;
+    margin-bottom: 4px;
+}
+
+.story-chapter p {
+    font-size: 11px;
+    color: #a28baa;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.chapter-arrow {
+    color: #b58bd0;
+    font-size: 19px;
+}
+
+.story-detail {
+    text-align: center;
+}
+
+.story-detail h1 {
+    font-family: Georgia, serif;
+    color: var(--deep-purple);
+    font-size: 28px;
+    line-height: 1.4;
+    margin: 12px 0 25px;
+}
+
+.story-detail-paper {
+    background: #fcf7ff;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 28px;
+}
+
+.story-detail-paper p {
+    font-size: 14px;
+    line-height: 2;
+    color: #786383;
+    text-align: justify;
+}
+
+.back-to-chapters {
+    margin-top: 25px;
+    padding: 11px 20px;
+    background: #eadcf5;
+    border: none;
+    color: #76528e;
+    border-radius: 25px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.back-to-chapters:hover {
+    background: #ddc7ee;
+}
+
+/* =====================================
+   MEMORIES AND PHOTO GALLERY
+===================================== */
+
+.memory-intro {
+    color: #9b80a7;
+    font-size: 13px;
+    text-align: center !important;
+    margin-bottom: 25px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.memory-photo {
+    min-width: 0;
+    background: #fff;
+    padding: 9px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: 0 4px 13px rgba(115, 75, 140, 0.09);
+    transition: 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+button.memory-photo:hover {
+    transform: translateY(-5px) rotate(-1deg);
+}
+
+.memory-photo img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.memory-photo span {
+    display: block;
+    color: #866b94;
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 10px 3px 4px;
+    text-align: center;
+}
+
+.memory-note {
+    text-align: center !important;
+    margin-top: 25px;
+    color: #aa8cb8;
+    font-size: 12px;
+}
+
+/* =====================================
+   PHOTO LIGHTBOX
+===================================== */
+
+.photo-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(35, 20, 45, 0.92);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.photo-lightbox.visible {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.photo-lightbox img {
+    max-width: 90%;
+    max-height: 75vh;
+    object-fit: contain;
+    border: 7px solid white;
+    border-radius: 10px;
+}
+
+.photo-lightbox p {
+    color: white;
+    margin-top: 17px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 38px;
+}
+
+/* =====================================
+   18 REASONS
+===================================== */
+
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+}
+
+.reason-card {
+    position: relative;
+    min-height: 145px;
+    padding: 18px 12px;
+    background: #f5eafb;
+    border: 1px solid #e7d5f1;
+    border-radius: 15px;
+    color: #79598d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: 0.35s ease;
+}
+
+.reason-card:hover {
+    transform: translateY(-4px);
+}
+
+.reason-number {
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    font-size: 10px;
+    color: #a58ab4;
+}
+
+.reason-front {
+    font-size: 12px;
+}
+
+.reason-back {
+    display: none;
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.reason-card.revealed {
+    background: #ead9f5;
+    border-color: #c5a2df;
+}
+
+.reason-card.revealed .reason-front {
+    display: none;
+}
+
+.reason-card.revealed .reason-back {
+    display: block;
+}
+
+/* =====================================
+   18 WISHES
+===================================== */
+
+.wish-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.wish-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 17px;
+    background: #fcf7ff;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    transition: 0.3s;
+}
+
+.wish-card:hover {
+    transform: translateX(4px);
+    background: #f5eafb;
+}
+
+.wish-card span {
+    flex-shrink: 0;
+    color: #b28acb;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.wish-card p {
+    flex: 1;
+    color: #796383;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* =====================================
+   OPEN WHEN LETTERS
+===================================== */
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+}
+
+.letter-card {
+    min-height: 125px;
+    padding: 17px 10px;
+    background: #fcf7ff;
+    border: 1px solid #e8d8f0;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #795b89;
+    transition: 0.3s ease;
+}
+
+.letter-card:hover {
+    transform: translateY(-5px);
+    background: #f1e4f8;
+}
+
+.letter-icon {
+    font-size: 27px;
+}
+
+.letter-card > span:nth-child(2) {
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.letter-card small {
+    color: #ac93b7;
+    font-size: 10px;
+}
+
+.letter-display {
+    margin-top: 25px;
+    scroll-margin-top: 25px;
+}
+
+.opened-letter {
+    background: #fffaff;
+    border: 1px solid #e8d8f0;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.4s ease;
+}
+
+.opened-letter > span {
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.opened-letter h3 {
+    text-align: center;
+    color: var(--deep-purple);
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.opened-letter p {
+    font-size: 13px;
+    line-height: 2;
+    text-align: justify;
+    color: #796383;
+}
+
+.opened-letter small {
+    display: block;
+    margin-top: 20px;
+    color: #a58ab4;
+    text-align: right;
+}
+
+/* =====================================
+   BIRTHDAY LETTER
+===================================== */
+
+.birthday-letter {
+    padding: 25px;
+    background: #fcf7ff;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.letter-decoration {
+    display: block;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.birthday-letter h2 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: #78538b;
+    margin-bottom: 20px;
+}
+
+.birthday-letter p {
+    font-size: 13px;
+    line-height: 2;
+    color: #796383;
+    margin-bottom: 17px;
+    text-align: justify;
+}
+
+.birthday-letter h3 {
+    font-family: Georgia, serif;
+    color: #8962a1;
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* =====================================
+   BIRTHDAY SURPRISE
+===================================== */
+
+.surprise-content {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.surprise-intro {
+    color: #9476a3;
+    font-size: 14px;
+    margin-bottom: 25px;
+    text-align: center !important;
+}
+
+.gift-box {
+    width: fit-content;
+    margin: 25px auto;
+    font-size: 95px;
+    animation: gentleFloat 2s ease-in-out infinite;
+}
+
+.gift-box.gift-opened {
+    animation: giftOpen 0.6s ease forwards;
+}
+
+@keyframes giftOpen {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(10deg);
+    }
+
+    100% {
+        transform: scale(0.7) rotate(-10deg);
+        opacity: 0;
+    }
+}
+
+.gift-instruction {
+    font-size: 12px;
+    color: #a58ab4;
+    text-align: center !important;
+}
+
+/* =====================================
+   GIFT REVEAL
+===================================== */
+
+.gift-reveal {
+    margin-top: 35px;
+    padding: 25px 15px;
+    background:
+        radial-gradient(circle at top, #f1e0fa, transparent 60%),
+        #fffaff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.gift-reveal.visible {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* =====================================
+   PURPLE TULIP BOUQUET
+===================================== */
+
+.purple-tulip-bouquet {
+    width: 100%;
+    max-width: 320px;
+    margin: 20px auto;
+    animation: fadeIn 1.2s ease;
+}
+
+.purple-tulip-bouquet svg {
+    width: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 8px 10px rgba(113, 82, 127, 0.12));
+}
+
+.surprise-heading {
+    font-family: Georgia, serif;
+    color: #79538f;
+    font-size: 25px;
+    margin: 18px 0;
+}
+
+.tulip-message {
+    max-width: 480px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #90769c;
+    text-align: center !important;
+}
+
+.surprise-divider {
+    color: #bd96d6;
+    margin: 28px 0;
+    font-size: 19px;
+}
+
+/* =====================================
+   SURPRISE EFFECTS
+===================================== */
+
+.surprise-effects {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin: 15px 0 25px;
+}
+
+.surprise-effects span {
+    font-size: 23px;
+    animation: softPulse 2s ease-in-out infinite;
+}
+
+.surprise-effects span:nth-child(even) {
+    animation-delay: 0.5s;
+}
+
+.surprise-effects span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* =====================================
+   FINAL BIRTHDAY MESSAGE
+===================================== */
+
+.final-message {
+    padding: 30px 20px;
+    background: #f6edfa;
+    border: 1px solid #e8d8f0;
+    border-radius: 17px;
+    margin: 25px 0;
+}
+
+.final-message h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 5vw, 35px);
+    color: #79538f;
+    line-height: 1.4;
+    margin: 18px 0;
+}
+
+.final-message p {
+    max-width: 510px;
+    margin: 15px auto;
+    color: #856c91;
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.final-message h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #9167aa;
+    margin-top: 25px;
+}
+
+/* =====================================
+   FINAL PHOTOS
+===================================== */
+
+.final-photos {
+    margin-top: 35px;
+}
+
+.final-photos .photo-grid {
+    margin-top: 20px;
+}
+
+.final-photos .memory-photo img {
+    height: 150px;
+}
+
+.final-ending {
+    margin-top: 25px;
+    color: #9776a6;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: center !important;
+}
+
+/* =====================================
+   FIREWORK DECORATION
+===================================== */
+
+.firework-decoration {
+    font-size: 28px;
+    letter-spacing: 8px;
+    margin: 30px 0 10px;
+    animation: softPulse 1.8s ease-in-out infinite;
+}
+
+/* =====================================
+   MUSIC PLAYER
+===================================== */
+
+.music-player {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 13px;
+    background: rgba(255, 250, 255, 0.96);
+    border: 1px solid #e5d2ef;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(85, 55, 100, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.music-player button {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #eadcf5;
+    color: #79538f;
+    border-radius: 50%;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.music-player button:hover {
+    background: #d9c2eb;
+    transform: scale(1.1);
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 125px;
+}
+
+.music-label {
+    font-size: 8px;
+    color: #a18aad;
+    letter-spacing: 0.4px;
+}
+
+.music-title {
+    display: block;
+    font-size: 11px;
+    color: #765482;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.music-note {
+    color: #a77bd6;
+    font-size: 17px;
+    animation: softPulse 2s infinite;
+}
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f1fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d5bce6;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b993d4;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 700px) {
+
+    #home {
+        padding: 0 15px 35px;
+    }
+
+    .navbar {
+        padding: 17px 2px;
+    }
+
+    .brand {
+        font-size: 14px;
+    }
+
+    .birthday-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .home-content {
+        padding-top: 25px;
+    }
+
+    .scrapbook-cover {
+        padding: 43px 22px 35px;
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .menu-card {
+        min-height: 135px;
+        padding: 17px 9px;
+    }
+
+    .card-icon {
+        font-size: 27px;
+    }
+
+    .card-title {
+        font-size: 13px;
+    }
+
+    .card-subtitle {
+        font-size: 10px;
+    }
+
+    #page-container {
+        padding: 17px 12px 90px;
+    }
+
+    .page-navigation {
+        margin-bottom: 15px;
+    }
+
+    .page-label {
+        font-size: 8px;
+    }
+
+    .back-button {
+        padding: 9px 13px;
+        font-size: 11px;
+    }
+
+    .scrapbook-page {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .memory-photo img {
+        height: 145px;
+    }
+
+    .reason-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .letter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .story-chapter {
+        padding: 14px 11px;
+        gap: 10px;
+    }
+
+    .story-chapter h2 {
+        font-size: 12px;
+    }
+
+    .story-chapter p {
+        font-size: 10px;
+    }
+
+    .chapter-number {
+        width: 32px;
+        height: 32px;
+    }
+
+    .opened-letter,
+    .birthday-letter {
+        padding: 20px;
+    }
+
+    .final-message {
+        padding: 23px 15px;
+    }
+
+    .gift-box {
+        font-size: 80px;
+    }
+
+    .music-player {
+        bottom: 12px;
+        right: 12px;
+        gap: 6px;
+        padding: 8px 9px;
+    }
+
+    .music-player button {
+        width: 27px;
+        height: 27px;
+        font-size: 10px;
+    }
+
+    .music-info {
+        max-width: 95px;
+    }
+
+    .music-label {
+        font-size: 7px;
+    }
+
+    .music-title {
+        font-size: 10px;
+    }
+
+    .music-note {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .welcome-content {
+        padding: 40px 20px 32px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .menu-grid {
+        gap: 9px;
+    }
+
+    .menu-card {
+        min-height: 120px;
+    }
+
+    .card-title {
+        font-size: 12px;
+    }
+
+    .memory-photo img {
+        height: 120px;
+    }
+
+    .letter-card {
+        min-height: 110px;
+    }
+
+    .scrapbook-page {
+        padding: 25px 15px;
+    }
+
+    .page-navigation {
+        align-items: flex-start;
+    }
+
+    .page-label {
+        padding-top: 9px;
+    }
+
+    .music-info {
+        max-width: 78px;
+    }
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =====================================
+   END OF STYLE.CSS
+===================================== */

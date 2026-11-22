@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="images/app-icon-192.png">
+
+    <meta name="theme-color" content="#f4eafa">
+    <meta name="description" content="A little scrapbook made with love for Rose.">
+
+    <title>Dear, My Loving Wife ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <div class="floating-decoration decoration-one">♡</div>
+    <div class="floating-decoration decoration-two">✿</div>
+    <div class="floating-decoration decoration-three">୨୧</div>
+
+    <main id="app">
+
+        <!-- WELCOME SCREEN -->
+        <section id="welcome" class="screen active">
+
+            <div class="welcome-content scrapbook-paper">
+
+                <div class="tape tape-top"></div>
+
+                <span class="welcome-flower">🌷</span>
+
+                <p class="small-title">
+                    A LITTLE SOMETHING MADE FOR YOU
+                </p>
+
+                <h1>
+                    Dear, My
+                    <span>Loving Wife</span>
+                </h1>
+
+                <div class="heart-divider">♡ ── ♡ ── ♡</div>
+
+                <p class="welcome-message">
+                    Welcome to your little world, my love.
+                    I made this just for you..
+                </p>
+
+                <button id="startButton" class="primary-button">
+                    Let's celebrate you ♡
+                </button>
+
+                <p class="footer-note">
+                    made with love, especially for you
+                </p>
+
+                <span class="corner-decoration">୨୧</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN HOMEPAGE -->
+        <section id="home" class="screen">
+
+            <header class="navbar">
+                <a class="brand" href="#" aria-label="Home">
+                    ♡ Dear, My Loving Wife
+                </a>
+
+                <span class="birthday-label">
+                    ROSE'S 18TH BIRTHDAY
+                </span>
+            </header>
+
+
+            <div class="home-content">
+
+                <div class="scrapbook-cover">
+
+                    <div class="cover-sticker sticker-left">🌷</div>
+                    <div class="cover-sticker sticker-right">♡</div>
+
+                    <p class="small-title">
+                        OPEN THIS LITTLE WORLD
+                    </p>
+
+                    <h1>
+                        Happy 18th,
+                        <span>My Rose!</span>
+                    </h1>
+
+                    <p class="cover-message">
+                        A collection of our memories,
+                        little moments, and all the love
+                        I have for you.
+                    </p>
+
+                    <div class="cover-doodle">
+                        ✿ &nbsp; ♡ &nbsp; ✿
+                    </div>
+
+                    <span class="cover-caption">
+                        a scrapbook made just for you
+                    </span>
+
+                </div>
+
+
+                <!-- SCRAPBOOK NAVIGATION -->
+                <div class="section-heading">
+                    <span>୨୧</span>
+                    <h2>Little Pages of Love</h2>
+                    <span>୨୧</span>
+                </div>
+
+                <p class="section-description">
+                    Choose a page and discover what's inside.
+                </p>
+
+
+                <div class="menu-grid">
+
+                    <button class="menu-card" data-page="story">
+                        <span class="card-decoration">✿</span>
+                        <span class="card-icon">📖</span>
+                        <span class="card-title">Our Story</span>
+                        <span class="card-subtitle">How it all began</span>
+                    </button>
+
+                    <button class="menu-card" data-page="memories">
+                        <span class="card-decoration">♡</span>
+                        <span class="card-icon">📸</span>
+                        <span class="card-title">Our Memories</span>
+                        <span class="card-subtitle">Little moments together</span>
+                    </button>
+
+                    <button class="menu-card" data-page="love">
+                        <span class="card-decoration">୨୧</span>
+                        <span class="card-icon">💗</span>
+                        <span class="card-title">18 Reasons</span>
+                        <span class="card-subtitle">Why I love you</span>
+                    </button>
+
+                    <button class="menu-card" data-page="wishes">
+                        <span class="card-decoration">✧</span>
+                        <span class="card-icon">🎂</span>
+                        <span class="card-title">18 Wishes</span>
+                        <span class="card-subtitle">For your special day</span>
+                    </button>
+
+                    <button class="menu-card" data-page="openwhen">
+                        <span class="card-decoration">♡</span>
+                        <span class="card-icon">💌</span>
+                        <span class="card-title">Open When...</span>
+                        <span class="card-subtitle">Letters for every moment</span>
+                    </button>
+
+                    <button class="menu-card" data-page="letter">
+                        <span class="card-decoration">✿</span>
+                        <span class="card-icon">📝</span>
+                        <span class="card-title">A Letter for You</span>
+                        <span class="card-subtitle">Something from my heart</span>
+                    </button>
+
+                    <button class="menu-card special-card" data-page="surprise">
+                        <span class="card-decoration">✧</span>
+                        <span class="card-icon">🎁</span>
+                        <span class="card-title">Your Surprise</span>
+                        <span class="card-subtitle">A little gift awaits</span>
+                    </button>
+
+                </div>
+
+
+                <div class="home-footer">
+                    <div class="heart-divider">♡ ── ✿ ── ♡</div>
+                    <p>Every page holds a little piece of my heart.</p>
+                    <span>forever your biggest admirer ♡</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT PAGES -->
+        <section id="page-container" class="screen">
+
+            <div class="page-navigation">
+                <button id="backButton" class="back-button">
+                    ← Back to scrapbook
+                </button>
+
+                <span class="page-label">A PAGE JUST FOR YOU ♡</span>
+            </div>
+
+            <div id="page-content" class="page-content">
+                <!-- JavaScript will place the selected page here. -->
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="backgroundMusic" preload="metadata"></audio>
+
+    <!-- FLOATING MUSIC PLAYER -->
+    <div class="music-player" id="musicPlayer">
+
+        <button id="previousMusic" aria-label="Previous song" type="button">
+            ⏮
+        </button>
+
+        <button id="musicToggle" aria-label="Play music" type="button">
+            ▶
+        </button>
+
+        <button id="nextMusic" aria-label="Next song" type="button">
+            ⏭
+        </button>
+
+        <div class="music-info">    
+            <span class="music-label">A LITTLE SONG FOR YOU ♡</span>
+            <span class="music-title" id="musicTitle">Just The Way You Are</span>
+        </div>
+
+        <span class="music-note">♫</span>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
