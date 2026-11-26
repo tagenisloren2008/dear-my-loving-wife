@@ -1,13 +1,7 @@
 
-/* =====================================
-   DEAR, MY LOVING WIFE
-   PROGRESSIVE WEB APP
-   SERVICE WORKER
-===================================== */
+const CACHE_NAME = "dear-my-loving-wife-v3";
 
-const CACHE_NAME = "dear-my-loving-wife-v1";
-
-const FILES_TO_CACHE = [
+const APP_FILES = [
     "./",
     "./index.html",
     "./style.css",
@@ -15,72 +9,50 @@ const FILES_TO_CACHE = [
     "./manifest.json"
 ];
 
-// INSTALL SERVICE WORKER
-self.addEventListener("install", (event) => {
+self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(FILES_TO_CACHE);
-        })
+        caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES))
     );
 
     self.skipWaiting();
 });
 
-// ACTIVATE SERVICE WORKER
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", event => {
     event.waitUntil(
-        caches.keys().then((cacheNames) => {
-            return Promise.all(
-                cacheNames
-                    .filter((name) => name !== CACHE_NAME)
-                    .map((name) => caches.delete(name))
-            );
-        })
+        caches.keys().then(keys =>
+            Promise.all(
+                keys
+                    .filter(key => key !== CACHE_NAME)
+                    .map(key => caches.delete(key))
+            )
+        )
     );
 
     self.clients.claim();
 });
 
-// HANDLE WEBSITE REQUESTS
-self.addEventListener("fetch", (event) => {
-    const request = event.request;
+self.addEventListener("fetch", event => {
+    if (event.request.method !== "GET") return;
 
-    if (request.method !== "GET") {
-        return;
-    }
+    const url = new URL(event.request.url);
 
-    const url = new URL(request.url);
-
-    // Only handle requests from this website
-    if (url.origin !== self.location.origin) {
-        return;
-    }
+    if (url.origin !== self.location.origin) return;
 
     event.respondWith(
-        caches.match(request).then((cachedResponse) => {
-            if (cachedResponse) {
-                return cachedResponse;
-            }
+        caches.match(event.request).then(cached => {
+            const networkRequest = fetch(event.request).then(response => {
+                if (response && response.ok) {
+                    const copy = response.clone();
 
-            return fetch(request).then((networkResponse) => {
-                if (
-                    networkResponse &&
-                    networkResponse.status === 200
-                ) {
-                    const responseCopy = networkResponse.clone();
-
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(request, responseCopy);
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, copy);
                     });
                 }
 
-                return networkResponse;
-            }).catch(() => {
-                // Show the saved homepage when offline
-                if (request.mode === "navigate") {
-                    return caches.match("./index.html");
-                }
+                return response;
             });
+
+            return cached || networkRequest;
         })
     );
 });
